@@ -5,7 +5,7 @@ const Sidebar = () => {
         <div className="sidebar">
            <ul>
                <li>
-                   <Link to="/Home" className="btn btn-primary w-100 rounded-pill"><i className="fas fa-home me-2"/>Inicio</Link>
+                   <Link to="/" className="btn btn-primary w-100 rounded-pill"><i className="fas fa-home me-2"/>Inicio</Link>
                </li>
                <li>
                    <Link to="/Calendar" className="btn btn-primary w-100 rounded-pill"><i className="fas fa-calendar-alt me-2"/>Agenda</Link>

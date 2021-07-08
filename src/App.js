@@ -16,7 +16,7 @@ function App() {
       <div className="flex">
         <Sidebar />
         <div className="content">
-          <Route path="/Home" exact={true} component={Home} />
+          <Route path="/" exact={true} component={Home} />
           <Route path="/Calendar" exact={true} component={Calendar} />
           <Route path="/Sales" exact={true} component={Sales} />
           <Route path="/Clients" exact={true} component={Clients} />
