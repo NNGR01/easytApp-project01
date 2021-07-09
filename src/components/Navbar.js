@@ -23,7 +23,7 @@ const Navbar = () => {
                         Matías Espinoza
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a className="dropdown-item" href="/#"><i className="fas fa-user me-2"/>Perfil</a></li>
+                        <li><a className="dropdown-item" href="/Perfil"><i className="fas fa-user me-2"/>Perfil</a></li>
                         <li><a className="dropdown-item" href="/#"><i className="fas fa-cog me-2"/>Configuraciones</a></li>
                         <li><hr className="dropdown-divider" /></li>
                         <li><a className="dropdown-item" href="/#"><i className="fas fa-sign-out-alt me-2"/>Log Out</a></li>

@@ -1,0 +1,12 @@
+.jumbotron{
+    display: flex;
+    justify-content: center;
+    margin-left: 300px;
+    background-color: bisque;
+}
+.img-fluid{
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+}
