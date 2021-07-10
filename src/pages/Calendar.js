@@ -12,7 +12,9 @@ const Calendar = () => {
 Saludar
             </button>
         </div>
-    );
+
+  
+);
 }
  
 export default Calendar;
