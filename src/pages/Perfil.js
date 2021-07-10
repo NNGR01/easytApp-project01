@@ -23,9 +23,8 @@ const Perfil = () => {
       </div>
     </div>
   </div>
-  
-  
-            </Container>
+ </Container>
+ <div></div>
           </Jumbotron>
         </div>
       );
