@@ -2,12 +2,14 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             id:"",
-            name: '',
-            lastname: '',
-            users: "",
-            username: '',
+            primerNombre: '',
+            segundoNombre:'',
+            apellidoPaterno : '',
+            apellidoMaterno : '',
+            users: '',
             email:'',
-            password: '',
+            fono:'',
+            contrasena: '',
             currentUser: null,
             path: 'http://localhost:3000',
             error: ""
@@ -28,6 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             handleChange: e =>{
                 setStore({
                     [e.target.name]: e.target.value,
+                    
                    
                 })
             },
@@ -39,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     method: 'POST',
                     body: JSON.stringify({
                         email: store.email,
-                        password: store.password
+                        contrasena: store.contrasena
                     }),
                     headers: {
                         'Content-Type': 'application/json' //estoy enviando en formato json
@@ -55,9 +58,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                         } else {
                             const aut= {
                                 currentUser: data,
-                               /*  username: '',
-                                password: '',
-                                errors: null */
+                           /*      primerNombre: '',
+                                email:'',
+                                constrasena: '',
+                                errors: null  */
                             }
                             localStorage.setItem("auth", JSON.stringify(aut))
                             setStore({...aut})
@@ -78,23 +82,35 @@ const getState = ({ getStore, getActions, setStore }) => {
                     ...user
                 })
             },
-            register: (history, e) =>{
+            register: (e, history) =>{
                 e.preventDefault();
                 const store = getStore();
+                console.log({
+                    primerNombre : store.primerNombre,
+                    segundoNombre:"",
+                    apellidoPaterno: store.apellidoPaterno,
+                    apellidoMaterno:"",
+                    fono: store.fono,
+                    email: store.email,
+                    contrasena: store.contrasena
+                })
             
-                fetch("http://127.0.0.1:5000/register", {
+                fetch("http://localhost:5000/usuarios", {
                     method: 'POST',
                     body: JSON.stringify({
-                        id: store.id,
-                        name: store.name,
+                        primerNombre : store.primerNombre,
+                        segundoNombre:"",
+                        apellidoPaterno: store.apellidoPaterno,
+                        apellidoMaterno:"",
+                        fono: store.fono,
                         email: store.email,
-                        password: store.password
+                        contrasena: store.contrasena
                     }),
                     headers: {
-                        'ContentType' : 'application/json'
+                        'Content-Type' : 'application/json'
                     }
                 })
-                   .then(Response = Response.json())
+                   .then(response => response.json())
                    .then(data => {
                     console.log(data)
                     if(data.error || data.msg){
@@ -104,6 +120,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }else{
                         const reg = {
                             currentUser: data,
+                           /*  primerNombre: store.primerNombre,
+                            apellidoPaterno :store.apellidoPaterno,
+                            email:store.email,
+                            contrasena:store.constrasena,
+ */
                         
                         }
                         localStorage.setItem("reg",JSON.stringify(reg))

@@ -21,14 +21,18 @@ const SignUp = props => {
                     <form  onSubmit={e => actions.register(e, props.history)} className="row g-3">
                         <div className="col-md-6">
                             <label for="inputEmail4" className="form-label">Nombre</label>
-                            <input type="name" className="form-control" id="name" name="name"
-                            value={store.name}
+                            <input type="name" className="form-control" id="primerNombre" name="primerNombre"
+                            value={store.primerNombre}
                             onChange={actions.handleChange}
                             />
                         </div>
                         <div className="col-md-6">
                             <label for="inputPassword4" className="form-label">Apellido</label>
-                            <input type="text" className="form-control" id="inputPassword4" />
+                            <input type="text" className="form-control" id="apellidoPaterno" name="apellidoPaterno"
+                            value={store.apellidoPaterno}
+                            onChange={actions.handleChange}
+
+                            />
                         </div>
                         <div className="col-12">
                             <label for="inputAddress" className="form-label">E-mail</label>
@@ -40,8 +44,8 @@ const SignUp = props => {
                         </div>
                         <div className="col-12">
                             <label for="inputAddress2" className="form-label">Contraseña</label>
-                            <input className="form-control" type="password"  id="password" name="password" placeholder="Contraseña" 
-                            value={store.password}
+                            <input className="form-control" type="password"  id="contrasena" name="contrasena" placeholder="Contraseña" 
+                            value={store.contrasena}
                             onChange={actions.handleChange}
                             
                             />
@@ -70,7 +74,7 @@ const SignUp = props => {
                             </div>
                         </div>
                         <div className="col-12">
-                            <button type="submit" onClick={() => actions.register(history)} className="btn btn-primary">Sign in</button>
+                            <button type="submit" /* onClick={() => actions.register(history)} */ className="btn btn-primary">Sign in</button>
                         </div>
                     </form>
 

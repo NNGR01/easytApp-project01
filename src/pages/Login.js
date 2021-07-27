@@ -19,6 +19,7 @@ const Login = props => {
                     <div className="app-title">
                         <h1>Easyt-App</h1>
                     </div>
+            
                 
                     <form onSubmit={e => actions.login(e, props.history)}>
                         <div className="control-group">
@@ -29,8 +30,8 @@ const Login = props => {
                         </div>
 
                         <div className="control-group">
-                            <input className="form-control" type="password"  id="password" name="password" placeholder="Contraseña" 
-                            value={store.password}
+                            <input className="form-control" type="password"  id="contrasena" name="contrasena" placeholder="Contraseña" 
+                            value={store.contrasena}
                             onChange={actions.handleChange}
 
                             />

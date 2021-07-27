@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 // import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -15,10 +15,13 @@ import swal from 'sweetalert';
 
 import "../css/home.css";
 import { render } from "react-dom";
+import { Context } from "../store/appContext";
 
 const Home = () => {
   React.state = { fecha: new Date() };
 
+  const { store } = useContext(Context)
+ 
 
 const mostrar = () =>{
 
@@ -71,7 +74,7 @@ const mostrar = () =>{
         <Col xl={5} className="mt-5">
           <Card className="card text-center">
             <Card.Header>
-              <i class="fas fa-user-clock"></i> Cliente pendiente - Hoy
+              <i class="fas fa-user-clock"></i>{store.currentUser.user.primerNombre } Cliente pendiente - Hoy
             </Card.Header>
             <Card.Body className="mt-1">
               <Card.Title>Special title treatment</Card.Title>
