@@ -1,14 +1,10 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
-            name: 'Nicolas',
-            lastname: 'Guzman',
-            users: [
-                { id: 1, name: 'A' },
-                { id: 2, name: 'B' },
-                { id: 3, name: 'C' },
-                { id: 4, name: 'D' },
-            ],
+            id:"",
+            name: '',
+            lastname: '',
+            users: "",
             username: '',
             email:'',
             password: '',
@@ -32,13 +28,14 @@ const getState = ({ getStore, getActions, setStore }) => {
             handleChange: e =>{
                 setStore({
                     [e.target.name]: e.target.value,
+                   
                 })
             },
             login: (e, history) => {
                 e.preventDefault();
                 const store = getStore();
 
-            fetch("https://5000-amaranth-gazelle-6njcuvph.ws-us11.gitpod.io/login", {
+            fetch("http://127.0.0.1:5000/login", {
                     method: 'POST',
                     body: JSON.stringify({
                         email: store.email,
@@ -81,6 +78,42 @@ const getState = ({ getStore, getActions, setStore }) => {
                     ...user
                 })
             },
+            register: (history, e) =>{
+                e.preventDefault();
+                const store = getStore();
+            
+                fetch("http://127.0.0.1:5000/register", {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        id: store.id,
+                        name: store.name,
+                        email: store.email,
+                        password: store.password
+                    }),
+                    headers: {
+                        'ContentType' : 'application/json'
+                    }
+                })
+                   .then(Response = Response.json())
+                   .then(data => {
+                    console.log(data)
+                    if(data.error || data.msg){
+                        setStore({
+                            error: data.error
+                        })
+                    }else{
+                        const reg = {
+                            currentUser: data,
+                        
+                        }
+                        localStorage.setItem("reg",JSON.stringify(reg))
+                        setStore({ ...reg })
+                        history.push("/login")
+
+                    }
+                   })
+
+            }
             }
 
         }

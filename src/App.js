@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./css/style.css";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
@@ -23,9 +23,9 @@ function App() {
       <BrowserRouter>
         <switch>
           <MasterRoute component={Navbar} />
-
-          <div className="flex">
+           <div className="flex">
             <MasterRoute component={Sidebar} />
+      
             <div className="content">
               <MasterRoute path="/home" exact={true} component={Home} />
               <MasterRoute path="/calendar" exact={true} component={Calendar} />
@@ -34,8 +34,8 @@ function App() {
               <MasterRoute path="/perfil" exact={true} component={Perfil} />
               <MasterRoute path="/networks" exact={true} component={Networks} />
               <Route path="/signup" exact={true} component={SignUp} />
-
               <Route path="/" exact={true} component={Login} />
+              
             </div>
           </div>
         </switch>

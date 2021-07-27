@@ -1,33 +1,35 @@
 import React from 'react';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from "react-bootstrap/Container";
+import { Link } from 'react-router-dom';
 
 import '../css/perfil.css';
 
 const Perfil = () => {
     return (
-        <div>
-          <Jumbotron mb-3 fluid >
-            <Container fluid>
-              <h1 className="display-3">Mi cuenta</h1>
-              
-              <div className="row g-0">
-    <div className="col-md-4">
-      <img src={"https://www.geekmi.news/__export/1620498789729/sites/debate/img/2021/05/08/takemichi_crop1620498707631.jpg_1902800913.jpg"}  className="img-fluid rounded-start" alt="..."/>
-    </div>
-    <div className="col-md-8">
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
- </Container>
- <div></div>
-          </Jumbotron>
+        <div className="carta">
+          <div className="carta-img">
+            <img src="https://wallpaperaccess.com/full/153.jpg"></img>
+          </div>
+          <div className="perfil-img">
+            <img src="https://64.media.tumblr.com/fca81cd0ffc891a2c39da882c6f7d161/72b889ad881e1f1c-54/s1280x1920/e6c34c7a64d94b2211c69f5ff80155039d1e9ef7.jpg"></img>
+          </div>
+          <div className="carta-contenido">
+            <h3>Jhon Sanchez</h3>
+            <p> is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+          </div>
+   <div className="iconos h2">
+     <Link to="#" className="fab fa-facebook-f"></Link>
+     <Link to="#" className="fab fa-youtube"></Link>
+     <Link to="#" className="fab fa-instagram"></Link>
+     <Link to="#" className="fab fa-twitter"></Link>
+     <Link to="#" className="fab fa-wathsup"></Link>
+
+   </div>
+
         </div>
       );
 }
  
 export default Perfil;
+
+
+/* "https://wallpaperaccess.com/full/100.jpg" */

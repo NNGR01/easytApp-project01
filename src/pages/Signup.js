@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
 import '../css/signup.css';
+import { Context } from '../store/appContext';
 
 
-const SignUp = () => {
+const SignUp = props => {
+    const { store, actions } = useContext(Context);
+
+    const history = useHistory()
+
     return (
         <>
             <div className="box">
@@ -12,22 +18,33 @@ const SignUp = () => {
 
 
                 <div className="container">
-                    <form className="row g-3">
+                    <form  onSubmit={e => actions.register(e, props.history)} className="row g-3">
                         <div className="col-md-6">
                             <label for="inputEmail4" className="form-label">Nombre</label>
-                            <input type="email" className="form-control" id="inputEmail4" />
+                            <input type="name" className="form-control" id="name" name="name"
+                            value={store.name}
+                            onChange={actions.handleChange}
+                            />
                         </div>
                         <div className="col-md-6">
                             <label for="inputPassword4" className="form-label">Apellido</label>
-                            <input type="password" className="form-control" id="inputPassword4" />
+                            <input type="text" className="form-control" id="inputPassword4" />
                         </div>
                         <div className="col-12">
                             <label for="inputAddress" className="form-label">E-mail</label>
-                            <input type="text" className="form-control" id="inputAddress" placeholder="" />
+                            <input type="text" className="form-control"  placeholder="Ingresa Email" id="email" name="email" aria-label="default input example"
+                            value={store.email}
+                            onChange={actions.handleChange}
+                            
+                            />
                         </div>
                         <div className="col-12">
                             <label for="inputAddress2" className="form-label">Contraseña</label>
-                            <input type="text" className="form-control" id="inputAddress2" placeholder="" />
+                            <input className="form-control" type="password"  id="password" name="password" placeholder="Contraseña" 
+                            value={store.password}
+                            onChange={actions.handleChange}
+                            
+                            />
                         </div>
                         <div className="col-md-4">
                             <label for="inputCity" className="form-label">Rut</label>
@@ -53,7 +70,7 @@ const SignUp = () => {
                             </div>
                         </div>
                         <div className="col-12">
-                            <button type="submit" className="btn btn-primary">Sign in</button>
+                            <button type="submit" onClick={() => actions.register(history)} className="btn btn-primary">Sign in</button>
                         </div>
                     </form>
 

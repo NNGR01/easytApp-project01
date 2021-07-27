@@ -15,10 +15,7 @@ const injectContext = (PassedComponent) => {
 
         }));
       useEffect(() => {
-          state.actions.saludar();
-          state.actions.getUsers();
-          console.log("Component Mounted");
-        
+      
       },[]);
       return(
           <Context.Provider value={state}>

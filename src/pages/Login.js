@@ -22,14 +22,14 @@ const Login = props => {
                 
                     <form onSubmit={e => actions.login(e, props.history)}>
                         <div className="control-group">
-                            <input type="text" className="form-control" placeholder="Nombre de usuario" id="email" name="email" aria-label="default input example"
+                            <input type="text" className="form-control" placeholder="Ingresa Email" id="email" name="email" aria-label="default input example"
                             value={store.email}
                             onChange={actions.handleChange}/>
                             <label className="login-field-icon fui-user" for="login-name"></label>
                         </div>
 
                         <div className="control-group">
-                            <input className="form-control" type="password"  id="email" name="password" placeholder="Contraseña" 
+                            <input className="form-control" type="password"  id="password" name="password" placeholder="Contraseña" 
                             value={store.password}
                             onChange={actions.handleChange}
 
@@ -39,6 +39,10 @@ const Login = props => {
 
                         <button className="btn btn-primary btn-large btn-block pl-5 boton" href="">Ingresar</button>
                         <Link className="login-link" type="submit" to="/signup">Registrarse</Link>
+
+                      
+                              
+                        
                     </form>
                 </div>
             </div>
